@@ -70,7 +70,6 @@
     "eslint-plugin-react": "^7.31.11",
     "prettier": "2.8.1",
     "prop-types": "^15.8.1",
-    "react-docgen-typescript": "^2.2.2",
     "webpack": "^5.75.0"
   },
   "repository": "git@github.com:fluteroute/catnip-ui.git",
