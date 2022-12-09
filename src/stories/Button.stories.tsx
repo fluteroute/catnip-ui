@@ -8,6 +8,6 @@ export default {
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = args => <Button {...args}>Button</Button>;
+const Template = (args): JSX.Element => <Button {...args}>Button</Button>;
 
 export const Primary = Template.bind({});
