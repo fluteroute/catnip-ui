@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 // export interface ButtonProps
 //   extends React.Component<typeof HTMLButtonElement> {}
@@ -6,12 +6,12 @@ import React from "react";
 function Button(props) {
   const { children, ...other } = props;
   return (
-    <button type="button" {...other}>
+    <button type='button' {...other}>
       {children}
     </button>
   );
 }
 
-Button.displayName = 'CatNipButton'
+Button.displayName = 'CatNipButton';
 
 export default Button;
