@@ -52,6 +52,7 @@ const ButtonBase = styled.button(
             borderWidth: 2,
             borderColor: colors.primary,
           }),
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       ...css,
     };
