@@ -3,54 +3,51 @@ import styled from '@emotion/styled';
 import { CatnipTheme } from '../../themes/themes';
 import { Interpolation } from '@emotion/react';
 
-export interface ButtonProps {
-  children: React.ReactNode;
+interface ButtonOptions {
   css?: Interpolation<CatnipTheme>;
+  isDisabled?: boolean;
   variant?: 'primary' | 'secondary';
-  /**
-   * Optional click handler
-   */
-  onClick?: () => void;
 }
 
-const ButtonBase = styled.button(
-  ({
-    theme = {} as CatnipTheme,
-    variant = 'primary',
-    css = {},
-  }: ButtonProps & { theme?: CatnipTheme }) => {
-    const { colors, typography } = theme;
+const ButtonBase = styled.button<ButtonOptions>(
+  ({ css = {}, isDisabled, theme, variant = 'primary' }) => {
+    const { colors, typography } = theme as CatnipTheme;
 
     const isPrimary = variant === 'primary';
 
     return {
-      backgroundColor: isPrimary ? colors.primary : 'transparent',
-      padding: isPrimary ? 14 : 12,
-      borderRadius: 20,
+      borderRadius: 10,
       borderStyle: 'solid',
       ...typography.button,
       ...(isPrimary
         ? {
+            backgroundColor: isDisabled ? colors.disabled : colors.primary,
             borderWidth: 0,
+            padding: 12,
             ':hover': {
-              backgroundImage: `linear-gradient(to left, ${colors.lightenPrimary}, ${colors.primary})`,
-              backgroundColor: colors.lightenPrimary,
+              backgroundImage:
+                !isDisabled &&
+                `linear-gradient(to left, ${colors.lightenPrimary}, ${colors.primary})`,
+              backgroundColor: isDisabled ? colors.disabled : colors.lightenPrimary,
+              color: colors.lightenTextPrimary,
             },
             ':focus, :focus-visible': {
-              backgroundImage: `linear-gradient(to left, ${colors.lightenPrimary}, ${colors.primary})`,
-              backgroundColor: colors.lightenPrimary,
-              outline: colors.primary,
+              outline: isDisabled ? 'none' : colors.primary,
             },
           }
         : {
+            backgroundColor: 'transparent',
+            padding: 10,
             ':hover': {
-              borderColor: colors.lightenPrimary,
+              borderColor: isDisabled ? colors.disabled : colors.lightenPrimary,
+              color: colors.lightenTextPrimary,
             },
             ':focus, :focus-visible': {
-              borderColor: colors.lightenPrimary,
+              borderColor: isDisabled ? colors.disabled : colors.lightenPrimary,
+              outline: isDisabled ? 'none' : colors.primary,
             },
             borderWidth: 2,
-            borderColor: colors.primary,
+            borderColor: isDisabled ? colors.disabled : colors.primary,
           }),
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
@@ -59,12 +56,22 @@ const ButtonBase = styled.button(
   }
 );
 
+export interface ButtonProps extends React.ComponentProps<typeof ButtonBase> {
+  onClick?: () => void;
+}
+
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ children, ...props }: ButtonProps) => {
+export const Button = ({ children, isDisabled, onClick, ...props }: ButtonProps) => {
+  const handleClick = () => {
+    if (isDisabled || !onClick) return;
+
+    onClick();
+  };
+
   return (
-    <ButtonBase type="button" {...props}>
+    <ButtonBase type="button" isDisabled={isDisabled} onClick={handleClick} {...props}>
       {children}
     </ButtonBase>
   );
