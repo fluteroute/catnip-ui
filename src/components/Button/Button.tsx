@@ -29,7 +29,7 @@ const ButtonBase = styled.button<ButtonOptions>(
                 !isDisabled &&
                 `linear-gradient(to left, ${colors.lightenPrimary}, ${colors.primary})`,
               backgroundColor: isDisabled ? colors.disabled : colors.lightenPrimary,
-              color: colors.lightenTextPrimary,
+              color: !isDisabled && colors.lightenTextPrimary,
             },
             ':focus, :focus-visible': {
               outline: isDisabled ? 'none' : colors.primary,
@@ -40,7 +40,7 @@ const ButtonBase = styled.button<ButtonOptions>(
             padding: 10,
             ':hover': {
               borderColor: isDisabled ? colors.disabled : colors.lightenPrimary,
-              color: colors.lightenTextPrimary,
+              color: !isDisabled && colors.lightenTextPrimary,
             },
             ':focus, :focus-visible': {
               borderColor: isDisabled ? colors.disabled : colors.lightenPrimary,
