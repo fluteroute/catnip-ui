@@ -77,6 +77,7 @@ export const darkTheme = {
         color: '#F5F5F5',
         ':hover': {
           borderColor: baseTheme.colors.lightenPrimary,
+          color: '#FFFFFF',
         },
         ':focus, :focus-visible': {
           borderColor: baseTheme.colors.lightenPrimary,
@@ -100,6 +101,7 @@ export const darkTheme = {
         color: '#F5F5F5',
         ':hover': {
           borderColor: baseTheme.colors.lightenSecondary,
+          color: '#FFFFFF',
         },
         ':focus, :focus-visible': {
           borderColor: baseTheme.colors.lightenSecondary,
@@ -160,6 +162,7 @@ export const lightTheme = {
         color: baseTheme.colors.primary,
         ':hover': {
           borderColor: baseTheme.colors.darkenPrimary,
+          color: baseTheme.colors.darkenPrimary,
         },
         ':focus, :focus-visible': {
           borderColor: baseTheme.colors.darkenPrimary,
