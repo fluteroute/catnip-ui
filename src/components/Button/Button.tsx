@@ -11,31 +11,9 @@ interface ButtonOptions {
 
 const ButtonBase = styled.button<ButtonOptions>(
   ({ css = {}, isDisabled, theme, variant = 'primary' }) => {
-    const { colors, typography, mode } = theme as CatnipTheme;
-
-    const disabled = {
-      backgroundColor: colors.disabled,
-      ':hover': {
-        backgroundColor: colors.disabled,
-      },
-      ':focus, :focus-visible': {
-        outline: 'none',
-      },
-    };
-
-    const disabledOutline = {
-      ':hover': {
-        borderColor: colors.disabled,
-        color: colors.disabled,
-      },
-      ':focus, :focus-visible': {
-        borderColor: colors.disabled,
-        color: colors.disabled,
-        outline: 'none',
-      },
-      borderColor: colors.disabled,
-      color: colors.disabled,
-    };
+    const { colors, typography, components } = theme as CatnipTheme;
+    const { disabled, disabledOutline, primary, primaryOutline, secondary, secondaryOutline } =
+      components.button;
 
     return {
       borderRadius: 20,
@@ -43,75 +21,26 @@ const ButtonBase = styled.button<ButtonOptions>(
       ...typography.button,
       ...(variant === 'primary' && {
         borderWidth: 0,
-        color: colors.textPrimary,
         padding: 12,
-        ...(isDisabled
-          ? disabled
-          : {
-              backgroundColor: colors.primary,
-              ':hover': {
-                backgroundImage: `linear-gradient(to left, ${colors.lightenPrimary}, ${colors.primary})`,
-                backgroundColor: colors.lightenPrimary,
-                color: colors.lightenTextPrimary,
-              },
-              ':focus, :focus-visible': {
-                outline: colors.primary,
-              },
-            }),
+        ...(isDisabled ? disabled : primary),
       }),
       ...(variant === 'primaryOutline' && {
         backgroundColor: 'transparent',
         borderWidth: 2,
         padding: 10,
-        ...(isDisabled
-          ? disabledOutline
-          : {
-              color: mode === 'dark' ? colors.textPrimary : colors.primary,
-              ':hover': {
-                borderColor: colors.lightenPrimary,
-              },
-              ':focus, :focus-visible': {
-                borderColor: colors.lightenPrimary,
-                outline: colors.primary,
-              },
-              borderColor: colors.primary,
-            }),
+        ...(isDisabled ? disabledOutline : primaryOutline),
       }),
       ...(variant === 'secondary' && {
         borderWidth: 0,
         color: colors.textPrimary,
         padding: 12,
-        ...(isDisabled
-          ? disabled
-          : {
-              backgroundColor: colors.secondary,
-              ':hover': {
-                backgroundImage: `linear-gradient(to left, ${colors.lightenSecondary}, ${colors.secondary})`,
-                backgroundColor: colors.lightenSecondary,
-                color: colors.lightenTextPrimary,
-              },
-              ':focus, :focus-visible': {
-                outline: colors.secondary,
-              },
-            }),
+        ...(isDisabled ? disabled : secondary),
       }),
       ...(variant === 'secondaryOutline' && {
         backgroundColor: 'transparent',
         borderWidth: 2,
         padding: 10,
-        ...(isDisabled
-          ? disabledOutline
-          : {
-              color: mode === 'dark' ? colors.textPrimary : colors.secondary,
-              ':hover': {
-                borderColor: colors.lightenSecondary,
-              },
-              ':focus, :focus-visible': {
-                borderColor: colors.lightenSecondary,
-                outline: colors.secondary,
-              },
-              borderColor: colors.secondary,
-            }),
+        ...(isDisabled ? disabledOutline : secondaryOutline),
       }),
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
@@ -127,16 +56,22 @@ export interface ButtonProps extends React.ComponentProps<typeof ButtonBase> {
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ children, isDisabled, onClick, ...props }: ButtonProps) => {
-  const handleClick = () => {
-    if (isDisabled || !onClick) return;
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ children, isDisabled, onClick, ...props }, ref) => {
+    const handleClick = () => {
+      if (isDisabled || !onClick) return;
 
-    onClick();
-  };
+      onClick();
+    };
 
-  return (
-    <ButtonBase type="button" isDisabled={isDisabled} onClick={handleClick} {...props}>
-      {children}
-    </ButtonBase>
-  );
-};
+    return (
+      <ButtonBase isDisabled={isDisabled} onClick={handleClick} ref={ref} type="button" {...props}>
+        {children}
+      </ButtonBase>
+    );
+  }
+);
+
+Button.displayName = 'CatNipButton';
+
+export default Button;
