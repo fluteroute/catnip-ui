@@ -6,49 +6,115 @@ import { Interpolation } from '@emotion/react';
 interface ButtonOptions {
   css?: Interpolation<CatnipTheme>;
   isDisabled?: boolean;
-  variant?: 'primary' | 'secondary';
+  variant?: 'primary' | 'primaryOutline' | 'secondary' | 'secondaryOutline';
 }
 
 const ButtonBase = styled.button<ButtonOptions>(
   ({ css = {}, isDisabled, theme, variant = 'primary' }) => {
-    const { colors, typography } = theme as CatnipTheme;
+    const { colors, typography, mode } = theme as CatnipTheme;
 
-    const isPrimary = variant === 'primary';
+    console.log(theme);
+
+    const disabled = {
+      backgroundColor: colors.disabled,
+      ':hover': {
+        backgroundColor: colors.disabled,
+      },
+      ':focus, :focus-visible': {
+        outline: 'none',
+      },
+    };
+
+    const disabledOutline = {
+      ':hover': {
+        borderColor: colors.disabled,
+        color: colors.disabled,
+      },
+      ':focus, :focus-visible': {
+        borderColor: colors.disabled,
+        color: colors.disabled,
+        outline: 'none',
+      },
+      borderColor: colors.disabled,
+      color: colors.disabled,
+    };
 
     return {
-      borderRadius: 10,
+      borderRadius: 20,
       borderStyle: 'solid',
       ...typography.button,
-      ...(isPrimary
-        ? {
-            backgroundColor: isDisabled ? colors.disabled : colors.primary,
-            borderWidth: 0,
-            padding: 12,
-            ':hover': {
-              backgroundImage:
-                !isDisabled &&
-                `linear-gradient(to left, ${colors.lightenPrimary}, ${colors.primary})`,
-              backgroundColor: isDisabled ? colors.disabled : colors.lightenPrimary,
-              color: !isDisabled && colors.lightenTextPrimary,
-            },
-            ':focus, :focus-visible': {
-              outline: isDisabled ? 'none' : colors.primary,
-            },
-          }
-        : {
-            backgroundColor: 'transparent',
-            padding: 10,
-            ':hover': {
-              borderColor: isDisabled ? colors.disabled : colors.lightenPrimary,
-              color: !isDisabled && colors.lightenTextPrimary,
-            },
-            ':focus, :focus-visible': {
-              borderColor: isDisabled ? colors.disabled : colors.lightenPrimary,
-              outline: isDisabled ? 'none' : colors.primary,
-            },
-            borderWidth: 2,
-            borderColor: isDisabled ? colors.disabled : colors.primary,
-          }),
+      ...(variant === 'primary' && {
+        borderWidth: 0,
+        color: colors.textPrimary,
+        padding: 12,
+        ...(isDisabled
+          ? disabled
+          : {
+              backgroundColor: colors.primary,
+              ':hover': {
+                backgroundImage: `linear-gradient(to left, ${colors.lightenPrimary}, ${colors.primary})`,
+                backgroundColor: colors.lightenPrimary,
+                color: colors.lightenTextPrimary,
+              },
+              ':focus, :focus-visible': {
+                outline: colors.primary,
+              },
+            }),
+      }),
+      ...(variant === 'primaryOutline' && {
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        padding: 10,
+        ...(isDisabled
+          ? disabledOutline
+          : {
+              color: mode === 'dark' ? colors.textPrimary : colors.primary,
+              ':hover': {
+                borderColor: colors.lightenPrimary,
+              },
+              ':focus, :focus-visible': {
+                borderColor: colors.lightenPrimary,
+                outline: colors.primary,
+              },
+              borderColor: colors.primary,
+            }),
+      }),
+      ...(variant === 'secondary' && {
+        borderWidth: 0,
+        color: colors.textPrimary,
+        padding: 12,
+        ...(isDisabled
+          ? disabled
+          : {
+              backgroundColor: colors.secondary,
+              ':hover': {
+                backgroundImage: `linear-gradient(to left, ${colors.lightenSecondary}, ${colors.secondary})`,
+                backgroundColor: colors.lightenSecondary,
+                color: colors.lightenTextPrimary,
+              },
+              ':focus, :focus-visible': {
+                outline: colors.secondary,
+              },
+            }),
+      }),
+      ...(variant === 'secondaryOutline' && {
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        padding: 10,
+        ...(isDisabled
+          ? disabledOutline
+          : {
+              color: mode === 'dark' ? colors.textPrimary : colors.secondary,
+              ':hover': {
+                borderColor: colors.lightenSecondary,
+              },
+              ':focus, :focus-visible': {
+                borderColor: colors.lightenSecondary,
+                outline: colors.secondary,
+              },
+              borderColor: colors.secondary,
+            }),
+      }),
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       ...css,

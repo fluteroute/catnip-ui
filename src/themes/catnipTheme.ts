@@ -1,11 +1,11 @@
 import { Theme } from '@emotion/react';
 
-export const catnipTheme = {
+const baseTheme = {
   colors: {
     primary: '#f0690f',
     lightenPrimary: '#fc802d',
     secondary: '#A64942',
-    backgroundPrimary: '#1B1F3A',
+    lightenSecondary: '#C35850',
     backgroundSecondary: '#53354A',
     textPrimary: '#F5F5F5',
     lightenTextPrimary: '#FFFFFF',
@@ -13,13 +13,11 @@ export const catnipTheme = {
   },
   typography: {
     h1: {
-      color: '#F5F5F5',
       fontFamily: 'Kdam Thmor Pro, Franklin Gothic Medium, Arial Narrow, Arial,sans-serif',
       fontSize: 50,
       fontStyle: 'normal',
     },
     button: {
-      color: '#F5F5F5',
       fontFamily: 'Source Code Pro, Arial',
       fontSize: 16,
       fontStyle: 'normal',
@@ -30,4 +28,22 @@ export const catnipTheme = {
   },
 };
 
-export type CatnipTheme = Theme & typeof catnipTheme;
+export const darkTheme = {
+  mode: 'dark',
+  colors: {
+    backgroundPrimary: '#1B1F3A',
+    ...baseTheme.colors,
+  },
+  typography: baseTheme.typography,
+};
+
+export const lightTheme = {
+  mode: 'light',
+  colors: {
+    backgroundPrimary: '#FFFFFF',
+    ...baseTheme.colors,
+  },
+  typography: baseTheme.typography,
+};
+
+export type CatnipTheme = Theme & typeof darkTheme;

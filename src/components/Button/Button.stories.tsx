@@ -22,8 +22,20 @@ Primary.args = {
   children: 'Button',
 };
 
+export const PrimaryOutline = Template.bind({});
+PrimaryOutline.args = {
+  children: 'Button',
+  variant: 'primaryOutline',
+};
+
 export const Secondary = Template.bind({});
 Secondary.args = {
   children: 'Button',
   variant: 'secondary',
+};
+
+export const SecondaryOutline = Template.bind({});
+SecondaryOutline.args = {
+  children: 'Button',
+  variant: 'secondaryOutline',
 };

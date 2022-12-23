@@ -1,5 +1,5 @@
 import { create } from '@storybook/theming';
-import { catnipTheme } from '../src/themes/themes';
+import { darkTheme as catnipTheme } from '../src/themes/themes';
 
 export default create({
   base: 'dark',
@@ -8,8 +8,8 @@ export default create({
   colorSecondary: catnipTheme.colors.secondary,
 
   // UI
-  appBg: catnipTheme.colors.backgroundPrimary,
-  appContentBg: catnipTheme.colors.backgroundSecondary,
+  appBg: catnipTheme.colors.backgroundSecondary,
+  appContentBg: catnipTheme.colors.backgroundPrimary,
   appBorderColor: 'white',
   appBorderRadius: 4,
 
@@ -27,7 +27,7 @@ export default create({
   barBg: catnipTheme.colors.backgroundSecondary,
 
   // Form colors
-  inputBg: catnipTheme.colors.backgroundSecondary,
+  inputBg: catnipTheme.colors.backgroundPrimary,
   inputBorder: 'white',
   inputTextColor: 'white',
   inputBorderRadius: 4,
