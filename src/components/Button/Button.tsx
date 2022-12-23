@@ -13,8 +13,6 @@ const ButtonBase = styled.button<ButtonOptions>(
   ({ css = {}, isDisabled, theme, variant = 'primary' }) => {
     const { colors, typography, mode } = theme as CatnipTheme;
 
-    console.log(theme);
-
     const disabled = {
       backgroundColor: colors.disabled,
       ':hover': {
