@@ -1,6 +1,6 @@
 import { Theme } from '@emotion/react';
 
-const baseTheme = {
+export const baseTheme = {
   colors: {
     darkenPrimary: '#E0630F',
     primary: '#f0690f',
@@ -16,12 +16,47 @@ const baseTheme = {
       fontFamily: 'Kdam Thmor Pro, Franklin Gothic Medium, Arial Narrow, Arial,sans-serif',
       fontSize: 50,
       fontStyle: 'normal',
+      fontWeight: 600,
+      lineHeight: 'normal',
+      letterSpacing: 1,
+    },
+    h2: {
+      fontFamily: 'Kdam Thmor Pro, Franklin Gothic Medium, Arial Narrow, Arial,sans-serif',
+      fontSize: 40,
+      fontStyle: 'normal',
+      fontWeight: 600,
+      lineHeight: 'normal',
+      letterSpacing: 1,
+    },
+    body1: {
+      fontFamily: 'Arial, sans-serif',
+      fontSize: 18,
+      fontStyle: 'normal',
+      fontWeight: 400,
+      lineHeight: 'normal',
+      letterSpacing: 1,
+    },
+    body2: {
+      fontFamily: 'Arial, sans-serif',
+      fontSize: 16,
+      fontStyle: 'normal',
+      fontWeight: 400,
+      lineHeight: 'normal',
+      letterSpacing: 1,
     },
     button: {
       fontFamily: 'Source Code Pro, Arial',
       fontSize: 16,
       fontStyle: 'normal',
       fontWeight: 600,
+      lineHeight: 'normal',
+      letterSpacing: 1,
+    },
+    label: {
+      fontFamily: 'Source Code Pro, Arial',
+      fontSize: 14,
+      fontStyle: 'normal',
+      fontWeight: 200,
       lineHeight: 'normal',
       letterSpacing: 1,
     },
@@ -34,12 +69,14 @@ export const darkTheme = {
     backgroundPrimary: '#1B1F3A',
     textPrimary: '#F5F5F5',
     lightenTextPrimary: '#FFFFFF',
+    textSecondary: '#E5E4E4',
     ...baseTheme.colors,
   },
   typography: baseTheme.typography,
   components: {
     button: {
       disabled: {
+        color: '#F5F5F5',
         backgroundColor: baseTheme.colors.disabled,
         ':hover': {
           backgroundColor: baseTheme.colors.disabled,
@@ -119,6 +156,7 @@ export const lightTheme = {
     backgroundPrimary: '#FFFFFF',
     textPrimary: '#1A1A1A',
     darkenTextPrimary: '#000000',
+    textSecondary: '#C8C5C5',
     ...baseTheme.colors,
   },
   typography: baseTheme.typography,

@@ -11,7 +11,7 @@ interface ButtonOptions {
 
 const ButtonBase = styled.button<ButtonOptions>(
   ({ css = {}, isDisabled, theme, variant = 'primary' }) => {
-    const { colors, typography, components } = theme as CatnipTheme;
+    const { typography, components } = theme as CatnipTheme;
     const { disabled, disabledOutline, primary, primaryOutline, secondary, secondaryOutline } =
       components.button;
 
@@ -32,7 +32,6 @@ const ButtonBase = styled.button<ButtonOptions>(
       }),
       ...(variant === 'secondary' && {
         borderWidth: 0,
-        color: colors.textPrimary,
         padding: 12,
         ...(isDisabled ? disabled : secondary),
       }),
