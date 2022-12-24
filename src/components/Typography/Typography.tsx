@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { CatnipTheme, baseTheme } from '../../themes/themes';
+import { CatnipTheme, baseTheme } from '../../themes';
 import { Interpolation } from '@emotion/react';
 
 interface TypographyOptions {

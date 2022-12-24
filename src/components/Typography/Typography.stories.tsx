@@ -1,5 +1,5 @@
 import React from 'react';
-import { baseTheme } from '../../themes/catnipTheme';
+import { baseTheme } from '../../themes';
 import { ComponentMeta } from '@storybook/react';
 import { Typography } from '.';
 

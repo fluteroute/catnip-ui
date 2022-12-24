@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from '@emotion/react';
-import { CatnipTheme, darkTheme, lightTheme } from '../../themes/themes';
+import { CatnipTheme, darkTheme, lightTheme } from '../../themes';
 import { useTheme as useEmotionTheme } from '@emotion/react';
 
 export interface CatnipProviderProps {

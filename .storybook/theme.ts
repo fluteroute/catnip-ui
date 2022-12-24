@@ -1,5 +1,5 @@
 import { create } from '@storybook/theming';
-import { darkTheme as catnipTheme } from '../src/themes/themes';
+import { darkTheme as catnipTheme } from '../src/themes';
 
 export default create({
   base: 'dark',
