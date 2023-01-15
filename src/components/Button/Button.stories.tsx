@@ -7,7 +7,7 @@ export default {
   component: Button,
   argTypes: {
     isDisabled: {
-      ontrol: 'boolean',
+      control: 'boolean',
     },
   },
   args: {
