@@ -16,7 +16,7 @@ export interface TextFieldProps extends InputProps {
 export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
   ({ isDisabled, isRequired = false, label, onChange, placeholder, ...props }, ref) => {
     const labelId = uuidv4();
-    const handleChange = (event: any) => {
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       if (isDisabled || !onChange) return;
 
       onChange(event);

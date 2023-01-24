@@ -16,7 +16,7 @@ export interface TextAreaProps extends TextareaProps {
 export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
   ({ isDisabled, isRequired = false, label, onChange, placeholder, rows = 8, ...props }, ref) => {
     const labelId = uuidv4();
-    const handleChange = (event: any) => {
+    const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
       if (isDisabled || !onChange) return;
 
       onChange(event);
