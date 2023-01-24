@@ -1,20 +1,20 @@
 import React from 'react';
-import { Input, InputProps } from 'theme-ui';
+import { Textarea, TextareaProps } from 'theme-ui';
 import { Typography } from '../Typography';
 import { v4 as uuidv4 } from 'uuid';
 
-export interface TextFieldProps extends InputProps {
+export interface TextAreaProps extends TextareaProps {
   label?: string;
   isDisabled?: boolean;
   isRequired?: boolean;
-  onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  onChange?: React.ChangeEventHandler<HTMLTextAreaElement>;
 }
 
 /**
  * Primary UI component for user interaction
  */
-export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
-  ({ isDisabled, isRequired = false, label, onChange, placeholder, ...props }, ref) => {
+export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
+  ({ isDisabled, isRequired = false, label, onChange, placeholder, rows = 8, ...props }, ref) => {
     const labelId = uuidv4();
     const handleChange = (event: any) => {
       if (isDisabled || !onChange) return;
@@ -35,7 +35,7 @@ export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
             {isRequired && '*'}
           </Typography>
         )}
-        <Input
+        <Textarea
           aria-labelledby={labelId}
           data-disabled={isDisabled ? true : undefined}
           disabled={isDisabled ? true : undefined}
@@ -43,6 +43,7 @@ export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
           placeholder={!isDisabled ? placeholder : undefined}
           ref={ref}
           required={isRequired && true}
+          rows={rows}
           {...props}
         />
       </>
@@ -50,6 +51,6 @@ export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
   }
 );
 
-TextField.displayName = 'CatNipTextField';
+TextArea.displayName = 'CatNipTextArea';
 
-export default TextField;
+export default TextArea;
