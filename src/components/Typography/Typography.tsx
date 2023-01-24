@@ -1,37 +1,19 @@
 import React from 'react';
-import styled from '@emotion/styled';
-import { CatnipTheme, baseTheme } from '../../themes';
-import { Interpolation } from '@emotion/react';
+import { Text, TextProps } from 'theme-ui';
+import { baseTheme } from '../../themes';
 
-interface TypographyOptions {
+export interface TypographyProps extends TextProps {
   color?: 'textPrimary' | 'textSecondary';
-  css?: Interpolation<CatnipTheme>;
   variant?: keyof typeof baseTheme.typography;
 }
-
-const TypographyBase = styled.span<TypographyOptions>(
-  ({ css = {}, color, variant = 'body1', theme }) => {
-    const { colors, typography } = theme as CatnipTheme;
-    const textColor = color === 'textSecondary' ? colors.textSecondary : colors.textPrimary;
-
-    return {
-      ...typography[variant],
-      color: textColor,
-      padding: 5,
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      ...css,
-    };
-  }
-);
-
-export type TypographyProps = React.ComponentProps<typeof TypographyBase>;
 
 /**
  * Primary UI component for user interaction
  */
-export const Typography = React.forwardRef<HTMLSpanElement, TypographyProps>((props, ref) => {
-  return <TypographyBase ref={ref} {...props} />;
+export const Typography = React.forwardRef<HTMLDivElement, TypographyProps>((props, ref) => {
+  const { color = 'textPrimary', variant, sx, ...other } = props;
+
+  return <Text ref={ref} sx={{ color, ...sx }} variant={variant} {...other} />;
 });
 
 Typography.displayName = 'CatNipTypography';

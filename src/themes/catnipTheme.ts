@@ -1,8 +1,7 @@
 import { baseTheme } from './baseTheme';
-import { Theme } from '@emotion/react';
+import type { Theme } from 'theme-ui';
 
 export const darkTheme = {
-  mode: 'dark',
   colors: {
     backgroundPrimary: '#1B1F3A',
     textPrimary: '#F5F5F5',
@@ -10,86 +9,141 @@ export const darkTheme = {
     textSecondary: '#E5E4E4',
     ...baseTheme.colors,
   },
-  typography: baseTheme.typography,
-  components: {
-    button: {
-      disabled: {
-        color: '#F5F5F5',
-        backgroundColor: baseTheme.colors.disabled,
-        ':hover': {
-          backgroundColor: baseTheme.colors.disabled,
-        },
-        ':focus, :focus-visible': {
-          outline: 'none',
-        },
+  text: baseTheme.typography,
+  buttons: {
+    disabled: {
+      ...baseTheme.typography.button,
+      borderRadius: 20,
+      borderStyle: 'solid',
+      borderWidth: '0px',
+      padding: '12px',
+      color: '#F5F5F5',
+      backgroundColor: 'disabled',
+      '&:hover': {
+        backgroundColor: 'disabled',
       },
-      disabledOutline: {
-        ':hover': {
-          borderColor: baseTheme.colors.disabled,
-          color: baseTheme.colors.disabled,
-        },
-        ':focus, :focus-visible': {
-          borderColor: baseTheme.colors.disabled,
-          color: baseTheme.colors.disabled,
-          outline: 'none',
-        },
-        borderColor: baseTheme.colors.disabled,
-        color: baseTheme.colors.disabled,
+      ':focus, :focus-visible': {
+        outline: 'none',
       },
-      primary: {
-        color: '#F5F5F5',
-        backgroundColor: baseTheme.colors.primary,
-        ':hover': {
-          backgroundImage: `linear-gradient(to left, ${baseTheme.colors.lightenPrimary}, ${baseTheme.colors.primary})`,
-          backgroundColor: baseTheme.colors.lightenPrimary,
-          color: '#FFFFFF',
-        },
-        ':focus, :focus-visible': {
-          outline: baseTheme.colors.primary,
-        },
+    },
+    disabledOutline: {
+      ...baseTheme.typography.button,
+      borderRadius: 20,
+      borderStyle: 'solid',
+      backgroundColor: 'transparent',
+      borderWidth: '2px',
+      padding: '10px',
+      '&:hover': {
+        borderColor: 'disabled',
+        color: 'disabled',
       },
-      primaryOutline: {
-        color: '#F5F5F5',
-        ':hover': {
-          borderColor: baseTheme.colors.lightenPrimary,
-          color: '#FFFFFF',
-        },
-        ':focus, :focus-visible': {
-          borderColor: baseTheme.colors.lightenPrimary,
-          outline: baseTheme.colors.primary,
-        },
-        borderColor: baseTheme.colors.primary,
+      '&:focus, :focus-visible': {
+        borderColor: 'disabled',
+        color: 'disabled',
+        outline: 'none',
       },
-      secondary: {
-        color: '#F5F5F5',
-        backgroundColor: baseTheme.colors.secondary,
-        ':hover': {
-          backgroundImage: `linear-gradient(to left, ${baseTheme.colors.lightenSecondary}, ${baseTheme.colors.secondary})`,
-          backgroundColor: baseTheme.colors.lightenSecondary,
-          color: '#FFFFFF',
-        },
-        ':focus, :focus-visible': {
-          outline: baseTheme.colors.secondary,
-        },
+      borderColor: 'disabled',
+      color: 'disabled',
+    },
+    primary: {
+      ...baseTheme.typography.button,
+      borderRadius: 20,
+      borderStyle: 'solid',
+      borderWidth: '0px',
+      padding: '12px',
+      color: '#F5F5F5',
+      backgroundColor: 'primary',
+      '&:hover': {
+        backgroundImage: `linear-gradient(to left, ${
+          baseTheme.colors.lightenPrimary
+        }, ${'primary'})`,
+        backgroundColor: baseTheme.colors.lightenPrimary,
+        color: '#FFFFFF',
       },
-      secondaryOutline: {
-        color: '#F5F5F5',
-        ':hover': {
-          borderColor: baseTheme.colors.lightenSecondary,
-          color: '#FFFFFF',
-        },
-        ':focus, :focus-visible': {
-          borderColor: baseTheme.colors.lightenSecondary,
-          outline: baseTheme.colors.secondary,
-        },
-        borderColor: baseTheme.colors.secondary,
+      '&:focus, :focus-visible': {
+        outline: 'primary',
+      },
+    },
+    primaryOutline: {
+      ...baseTheme.typography.button,
+      borderRadius: 20,
+      borderStyle: 'solid',
+      backgroundColor: 'transparent',
+      borderWidth: '2px',
+      padding: '10px',
+      color: '#F5F5F5',
+      '&:hover': {
+        borderColor: baseTheme.colors.lightenPrimary,
+        color: '#FFFFFF',
+      },
+      '&:focus, :focus-visible': {
+        borderColor: baseTheme.colors.lightenPrimary,
+        outline: 'primary',
+      },
+      borderColor: 'primary',
+    },
+    secondary: {
+      ...baseTheme.typography.button,
+      borderRadius: 20,
+      borderStyle: 'solid',
+      borderWidth: '0px',
+      padding: '12px',
+      color: '#F5F5F5',
+      backgroundColor: 'secondary',
+      '&:hover': {
+        backgroundImage: `linear-gradient(to left, ${baseTheme.colors.lightenSecondary}, ${baseTheme.colors.secondary})`,
+        backgroundColor: 'lightenSecondary',
+        color: '#FFFFFF',
+      },
+      '&:focus, :focus-visible': {
+        outline: 'secondary',
+      },
+    },
+    secondaryOutline: {
+      ...baseTheme.typography.button,
+      borderRadius: 20,
+      borderStyle: 'solid',
+      backgroundColor: 'transparent',
+      borderWidth: '2px',
+      padding: '10px',
+      color: '#F5F5F5',
+      '&:hover': {
+        borderColor: 'lightenSecondary',
+        color: '#FFFFFF',
+      },
+      '&:focus, :focus-visible': {
+        borderColor: 'lightenSecondary',
+        outline: 'secondary',
+      },
+      borderColor: 'secondary',
+    },
+  },
+  forms: {
+    input: {
+      ...baseTheme.typography.body1,
+      background: 'linear-gradient(#F5F5F5, #F5F5F5) bottom/ calc(100% - 2*3px) 3px no-repeat',
+      backgroundColor: 'transparent',
+      borderColor: 'transparent',
+      borderStyle: 'solid',
+      borderWidth: '0px',
+      color: 'textPrimary',
+      height: '35px',
+      padding: '5px',
+      margin: '5px',
+      width: '100%',
+      '&:focus, :focus-visible': {
+        outline: 'none',
+        boxShadow: `0 7px 2px -2px ${baseTheme.colors.secondary}`,
+      },
+      '&[data-disabled]': {
+        backgroundColor: 'disabled',
+        opacity: 0.5,
       },
     },
   },
 };
 
 export const lightTheme = {
-  mode: 'light',
   colors: {
     backgroundPrimary: '#FFFFFF',
     textPrimary: '#1A1A1A',
@@ -97,79 +151,133 @@ export const lightTheme = {
     textSecondary: '#C8C5C5',
     ...baseTheme.colors,
   },
-  typography: baseTheme.typography,
-  components: {
-    button: {
-      disabled: {
-        backgroundColor: baseTheme.colors.disabled,
-        ':hover': {
-          backgroundColor: baseTheme.colors.disabled,
-        },
-        ':focus, :focus-visible': {
-          outline: 'none',
-        },
+  text: baseTheme.typography,
+  buttons: {
+    disabled: {
+      ...baseTheme.typography.button,
+      borderRadius: 20,
+      borderStyle: 'solid',
+      borderWidth: '0px',
+      padding: '12px',
+      backgroundColor: 'disabled',
+      '&:hover': {
+        backgroundColor: 'disabled',
       },
-      disabledOutline: {
-        ':hover': {
-          borderColor: baseTheme.colors.disabled,
-          color: baseTheme.colors.disabled,
-        },
-        ':focus, :focus-visible': {
-          borderColor: baseTheme.colors.disabled,
-          color: baseTheme.colors.disabled,
-          outline: 'none',
-        },
-        borderColor: baseTheme.colors.disabled,
-        color: baseTheme.colors.disabled,
+      ':focus, :focus-visible': {
+        outline: 'none',
       },
-      primary: {
-        color: '#F5F5F5',
-        backgroundColor: baseTheme.colors.primary,
-        ':hover': {
-          backgroundImage: `linear-gradient(to left, ${baseTheme.colors.primary}, ${baseTheme.colors.darkenPrimary})`,
-          backgroundColor: baseTheme.colors.darkenPrimary,
-          color: '#DFDCDC',
-        },
-        ':focus, :focus-visible': {
-          outline: baseTheme.colors.primary,
-        },
+    },
+    disabledOutline: {
+      ...baseTheme.typography.button,
+      borderRadius: 20,
+      borderStyle: 'solid',
+      backgroundColor: 'transparent',
+      borderWidth: '2px',
+      padding: '10px',
+      '&:hover': {
+        borderColor: 'disabled',
+        color: 'disabled',
       },
-      primaryOutline: {
-        color: baseTheme.colors.primary,
-        ':hover': {
-          borderColor: baseTheme.colors.darkenPrimary,
-          color: baseTheme.colors.darkenPrimary,
-        },
-        ':focus, :focus-visible': {
-          borderColor: baseTheme.colors.darkenPrimary,
-          outline: baseTheme.colors.primary,
-        },
-        borderColor: baseTheme.colors.primary,
+      ':focus, :focus-visible': {
+        borderColor: 'disabled',
+        color: 'disabled',
+        outline: 'none',
       },
-      secondary: {
-        color: '#F5F5F5',
-        backgroundColor: baseTheme.colors.secondary,
-        ':hover': {
-          backgroundImage: `linear-gradient(to left, ${baseTheme.colors.secondary}, ${baseTheme.colors.darkenSecondary})`,
-          backgroundColor: baseTheme.colors.darkenSecondary,
-          color: '#DFDCDC',
-        },
-        ':focus, :focus-visible': {
-          outline: baseTheme.colors.secondary,
-        },
+      borderColor: 'disabled',
+      color: 'disabled',
+    },
+    primary: {
+      ...baseTheme.typography.button,
+      borderRadius: 20,
+      borderStyle: 'solid',
+      borderWidth: '0px',
+      padding: '12px',
+      color: '#F5F5F5',
+      backgroundColor: 'primary',
+      '&:hover': {
+        backgroundImage: `linear-gradient(to left, ${baseTheme.colors.primary}, ${baseTheme.colors.darkenPrimary})`,
+        backgroundColor: 'darkenPrimary',
+        color: '#DFDCDC',
       },
-      secondaryOutline: {
-        color: baseTheme.colors.secondary,
-        ':hover': {
-          color: baseTheme.colors.darkenSecondary,
-          borderColor: baseTheme.colors.darkenSecondary,
-        },
-        ':focus, :focus-visible': {
-          color: baseTheme.colors.darkenSecondary,
-          borderColor: baseTheme.colors.darkenSecondary,
-          outline: baseTheme.colors.secondary,
-        },
-        borderColor: baseTheme.colors.secondary,
+      '&:focus, :focus-visible': {
+        outline: 'primary',
+      },
+    },
+    primaryOutline: {
+      ...baseTheme.typography.button,
+      borderRadius: 20,
+      borderStyle: 'solid',
+      backgroundColor: 'transparent',
+      borderWidth: '2px',
+      padding: '10px',
+      color: 'primary',
+      '&:hover': {
+        borderColor: 'darkenPrimary',
+        color: 'darkenPrimary',
+      },
+      '&:focus, :focus-visible': {
+        borderColor: 'darkenPrimary',
+        outline: 'primary',
+      },
+      borderColor: 'primary',
+    },
+    secondary: {
+      ...baseTheme.typography.button,
+      borderRadius: 20,
+      borderStyle: 'solid',
+      borderWidth: '0px',
+      padding: '12px',
+      color: '#F5F5F5',
+      backgroundColor: 'secondary',
+      '&:hover': {
+        backgroundImage: `linear-gradient(to left, ${baseTheme.colors.secondary}, ${baseTheme.colors.darkenSecondary})`,
+        backgroundColor: baseTheme.colors.darkenSecondary,
+        color: '#DFDCDC',
+      },
+      '&:focus, :focus-visible': {
+        outline: 'secondary',
+      },
+    },
+    secondaryOutline: {
+      ...baseTheme.typography.button,
+      borderRadius: 20,
+      borderStyle: 'solid',
+      backgroundColor: 'transparent',
+      borderWidth: '2px',
+      padding: '10px',
+      color: 'secondary',
+      '&:hover': {
+        color: baseTheme.colors.darkenSecondary,
+        borderColor: baseTheme.colors.darkenSecondary,
+      },
+      '&:focus, :focus-visible': {
+        color: baseTheme.colors.darkenSecondary,
+        borderColor: baseTheme.colors.darkenSecondary,
+        outline: 'secondary',
+      },
+      borderColor: 'secondary',
+    },
+  },
+  forms: {
+    input: {
+      ...baseTheme.typography.body1,
+      background: 'linear-gradient(#1A1A1A, #1A1A1A) bottom/ calc(100% - 2*3px) 3px no-repeat',
+      backgroundColor: 'transparent',
+      borderColor: 'transparent',
+      borderStyle: 'solid',
+      borderWidth: '0px',
+      color: 'textPrimary',
+      height: '35px',
+      padding: '5px',
+      margin: '5px',
+      width: '100%',
+      '&:focus, :focus-visible': {
+        outline: 'none',
+        boxShadow: `0 7px 2px -2px ${baseTheme.colors.secondary}`,
+      },
+      '&[data-disabled]': {
+        backgroundColor: 'disabled',
+        opacity: 0.5,
       },
     },
   },

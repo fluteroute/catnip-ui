@@ -1,54 +1,9 @@
 import React from 'react';
-import styled from '@emotion/styled';
-import { CatnipTheme } from '../../themes';
-import { Interpolation } from '@emotion/react';
+import { Button as ThemeUIButton, ButtonProps as ThemeUIButtonProps } from 'theme-ui';
 
-interface ButtonOptions {
-  css?: Interpolation<CatnipTheme>;
+export interface ButtonProps extends ThemeUIButtonProps {
   isDisabled?: boolean;
   variant?: 'primary' | 'primaryOutline' | 'secondary' | 'secondaryOutline';
-}
-
-const ButtonBase = styled.button<ButtonOptions>(
-  ({ css = {}, isDisabled, theme, variant = 'primary' }) => {
-    const { typography, components } = theme as CatnipTheme;
-    const { disabled, disabledOutline, primary, primaryOutline, secondary, secondaryOutline } =
-      components.button;
-
-    return {
-      borderRadius: 20,
-      borderStyle: 'solid',
-      ...typography.button,
-      ...(variant === 'primary' && {
-        borderWidth: 0,
-        padding: 12,
-        ...(isDisabled ? disabled : primary),
-      }),
-      ...(variant === 'primaryOutline' && {
-        backgroundColor: 'transparent',
-        borderWidth: 2,
-        padding: 10,
-        ...(isDisabled ? disabledOutline : primaryOutline),
-      }),
-      ...(variant === 'secondary' && {
-        borderWidth: 0,
-        padding: 12,
-        ...(isDisabled ? disabled : secondary),
-      }),
-      ...(variant === 'secondaryOutline' && {
-        backgroundColor: 'transparent',
-        borderWidth: 2,
-        padding: 10,
-        ...(isDisabled ? disabledOutline : secondaryOutline),
-      }),
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      ...css,
-    };
-  }
-);
-
-export interface ButtonProps extends React.ComponentProps<typeof ButtonBase> {
   onClick?: () => void;
 }
 
@@ -56,17 +11,25 @@ export interface ButtonProps extends React.ComponentProps<typeof ButtonBase> {
  * Primary UI component for user interaction
  */
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ children, isDisabled, onClick, ...props }, ref) => {
+  ({ children, isDisabled, onClick, variant = 'primary', ...props }, ref) => {
     const handleClick = () => {
       if (isDisabled || !onClick) return;
 
       onClick();
     };
 
+    const disabledVariant = variant.includes('Outline') ? 'disabledOutline' : 'disabled';
+
     return (
-      <ButtonBase isDisabled={isDisabled} onClick={handleClick} ref={ref} type="button" {...props}>
+      <ThemeUIButton
+        disabled={isDisabled ? true : undefined}
+        onClick={handleClick}
+        ref={ref}
+        variant={isDisabled ? disabledVariant : variant}
+        {...props}
+      >
         {children}
-      </ButtonBase>
+      </ThemeUIButton>
     );
   }
 );

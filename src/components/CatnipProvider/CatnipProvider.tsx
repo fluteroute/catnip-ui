@@ -1,12 +1,11 @@
 import React from 'react';
-import { ThemeProvider } from '@emotion/react';
+import { ThemeProvider, useThemeUI } from 'theme-ui';
 import { CatnipTheme, darkTheme, lightTheme } from '../../themes';
-import { useTheme as useEmotionTheme } from '@emotion/react';
 
 export interface CatnipProviderProps {
   children?: React.ReactNode;
   variant?: 'dark' | 'light';
-  theme?: Pick<React.ComponentProps<ThemeProvider>, 'theme'>;
+  theme?: CatnipTheme;
 }
 
 function CatnipProvider(props: CatnipProviderProps) {
@@ -21,8 +20,4 @@ CatnipProvider.displayName = 'CatnipProvider';
 
 export default CatnipProvider;
 
-export const useTheme = () => {
-  const theme = useEmotionTheme();
-
-  return theme as CatnipTheme;
-};
+export const useTheme = () => useThemeUI() as unknown as { theme: CatnipTheme };

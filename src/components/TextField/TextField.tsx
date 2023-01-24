@@ -1,43 +1,11 @@
 import React from 'react';
-import styled from '@emotion/styled';
-import { CatnipTheme } from '../../themes';
-import { Interpolation } from '@emotion/react';
+import { Input, InputProps } from 'theme-ui';
 import { Typography } from '../Typography';
 import { v4 as uuidv4 } from 'uuid';
 
-interface TextFieldOptions {
-  css?: Interpolation<CatnipTheme>;
-  isDisabled?: boolean;
-}
-
-const TextFieldBase = styled.input<TextFieldOptions>(({ css = {}, isDisabled, theme }) => {
-  const { colors, typography } = theme as CatnipTheme;
-
-  return {
-    ...typography.body1,
-    background: `linear-gradient(${colors.textPrimary}, ${colors.textPrimary}) bottom/ calc(100% - 2*3px) 3px no-repeat`,
-    backgroundColor: isDisabled ? colors.disabled : 'transparent',
-    borderColor: 'transparent',
-    borderStyle: 'solid',
-    borderWidth: 0,
-    color: colors.textPrimary,
-    height: 25,
-    padding: 5,
-    margin: 5,
-    width: '100%',
-    ':focus, :focus-visible': {
-      outline: 'none',
-      boxShadow: !isDisabled && `0 7px 2px -2px ${colors.secondary}`,
-    },
-    ...(isDisabled && { opacity: 0.5 }),
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    ...css,
-  };
-});
-
-export interface TextFieldProps extends React.ComponentProps<typeof TextFieldBase> {
+export interface TextFieldProps extends InputProps {
   label?: string;
+  isDisabled?: boolean;
   isRequired?: boolean;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
@@ -68,10 +36,10 @@ export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
             {isRequired && '*'}
           </Typography>
         )}
-        <TextFieldBase
+        <Input
           aria-labelledby={labelId}
+          data-disabled={isDisabled ? true : undefined}
           disabled={isDisabled ? true : undefined}
-          isDisabled={isDisabled}
           onChange={handleChange}
           placeholder={!isDisabled ? placeholder : undefined}
           ref={ref}
