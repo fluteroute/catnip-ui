@@ -13,12 +13,13 @@ const Template: ComponentStory<typeof Image> = (args) => <Image {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  src: 'https://ashleyndavid.com/AD_logo_2.svg',
+  src: '/catnip.svg',
+  height: 200,
+  width: 200,
 };
 
-// TODO: Replace with photo that is hosted by ashleyndavid.com
 export const Avatar = Template.bind({});
 Avatar.args = {
-  src: 'https://media.licdn.com/dms/image/C4E03AQEIorpXK6V3EQ/profile-displayphoto-shrink_800_800/0/1660248683370?e=2147483647&v=beta&t=Oz1Snou-isRmFcxwbfAw4N_ejTQNto7CVcXyqyY0BK0',
+  src: '/avatar.jpeg',
   variant: 'avatar',
 };

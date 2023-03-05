@@ -34,6 +34,6 @@ export default create({
 
   brandTitle: 'Catnip UI storybook',
   brandUrl: 'https://ashleyndavid.com',
-  brandImage: 'https://ashleyndavid.com/AD_logo_2.svg',
+  brandImage: '/catnip.svg',
   brandTarget: '_self',
 });
