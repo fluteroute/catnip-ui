@@ -178,6 +178,13 @@ export const darkTheme = {
       },
     },
   },
+  images: {
+    avatar: {
+      width: 48,
+      height: 48,
+      borderRadius: 99999,
+    },
+  },
   styles: {
     hr: {
       color: 'textPrimary',
@@ -358,6 +365,13 @@ export const lightTheme = {
         backgroundColor: 'disabled',
         opacity: 0.5,
       },
+    },
+  },
+  images: {
+    avatar: {
+      width: 48,
+      height: 48,
+      borderRadius: 99999,
     },
   },
   styles: {
