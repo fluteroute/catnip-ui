@@ -1,5 +1,6 @@
 {
-  "name": "catnip-ui",
+  "name": "@fluteroute/catnip-ui",
+  "author": "Ashley David <ashley@ashleyndavid.com>",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
