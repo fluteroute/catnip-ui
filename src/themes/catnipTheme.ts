@@ -118,6 +118,24 @@ export const darkTheme = {
       borderColor: 'secondary',
     },
   },
+  cards: {
+    primary: {
+      ...baseTheme.typography.body1,
+      color: '#F5F5F5',
+      backgroundColor: 'backgroundSecondary',
+      padding: 2,
+      borderRadius: 4,
+    },
+    compact: {
+      ...baseTheme.typography.body1,
+      color: '#F5F5F5',
+      backgroundColor: 'backgroundSecondary',
+      padding: 1,
+      borderRadius: 2,
+      border: '1px solid',
+      borderColor: '#F5F5F5',
+    },
+  },
   forms: {
     input: {
       ...baseTheme.typography.body1,
@@ -158,6 +176,11 @@ export const darkTheme = {
         backgroundColor: 'disabled',
         opacity: 0.5,
       },
+    },
+  },
+  styles: {
+    hr: {
+      color: 'textPrimary',
     },
   },
 };
@@ -277,6 +300,24 @@ export const lightTheme = {
       borderColor: 'secondary',
     },
   },
+  cards: {
+    primary: {
+      ...baseTheme.typography.body1,
+      color: '#1A1A1A',
+      backgroundColor: 'backgroundSecondary',
+      padding: 2,
+      borderRadius: 4,
+    },
+    compact: {
+      ...baseTheme.typography.body1,
+      color: '#1A1A1A',
+      backgroundColor: 'backgroundSecondary',
+      padding: 1,
+      borderRadius: 2,
+      border: '1px solid',
+      borderColor: 'primary',
+    },
+  },
   forms: {
     input: {
       ...baseTheme.typography.body1,
@@ -317,6 +358,11 @@ export const lightTheme = {
         backgroundColor: 'disabled',
         opacity: 0.5,
       },
+    },
+  },
+  styles: {
+    hr: {
+      color: 'textPrimary',
     },
   },
 };
