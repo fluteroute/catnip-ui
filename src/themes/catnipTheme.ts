@@ -177,6 +177,13 @@ export const darkTheme = {
         opacity: 0.5,
       },
     },
+    label: {
+      ...baseTheme.typography.label,
+      color: 'textPrimary',
+    },
+    switch: {
+      color: 'primary',
+    },
   },
   images: {
     avatar: {
@@ -391,6 +398,13 @@ export const lightTheme = {
         backgroundColor: 'disabled',
         opacity: 0.5,
       },
+    },
+    label: {
+      ...baseTheme.typography.label,
+      color: 'textPrimary',
+    },
+    switch: {
+      color: 'primary',
     },
   },
   images: {

@@ -1,5 +1,3 @@
-// https://ashleyndavid.com/AD_logo_2.svg
-
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Image } from '.';
