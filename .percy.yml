@@ -1,12 +1,13 @@
 version: 2
 snapshot:
   widths:
-    - 500  
+    - 1000  
   minHeight: 500
   percyCSS: |
     .percy-only-css-global {
       background-color: #1B1F3A;
       padding: 40px;
+      height: 100%;
     }
 discovery:
   allowedHostnames: []
