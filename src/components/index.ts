@@ -12,7 +12,11 @@ export * from './Flex';
 
 export * from './Grid';
 
+export * from './IconButton';
+
 export * from './Image';
+
+export * from './Link';
 
 export * from './TextArea';
 

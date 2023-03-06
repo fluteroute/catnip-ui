@@ -185,7 +185,33 @@ export const darkTheme = {
       borderRadius: 99999,
     },
   },
+  links: {
+    nav: {
+      ...baseTheme.typography.navLink,
+      color: 'primary',
+      textDecoration: 'underline',
+      '&:hover': {
+        color: baseTheme.colors.lightenPrimary,
+      },
+      '&:focus, :focus-visible': {
+        color: baseTheme.colors.lightenSecondary,
+        outline: 'none',
+      },
+    },
+  },
   styles: {
+    a: {
+      ...baseTheme.typography.link,
+      color: baseTheme.colors.primary,
+      textDecoration: 'underline',
+      '&:hover': {
+        color: baseTheme.colors.lightenPrimary,
+      },
+      '&:focus, :focus-visible': {
+        color: baseTheme.colors.secondary,
+        outline: 'none',
+      },
+    },
     hr: {
       color: 'textPrimary',
     },
@@ -374,7 +400,33 @@ export const lightTheme = {
       borderRadius: 99999,
     },
   },
+  links: {
+    nav: {
+      ...baseTheme.typography.navLink,
+      color: 'primary',
+      textDecoration: 'underline',
+      '&:hover': {
+        color: baseTheme.colors.darkenPrimary,
+      },
+      '&:focus, :focus-visible': {
+        color: baseTheme.colors.darkenSecondary,
+        outline: 'none',
+      },
+    },
+  },
   styles: {
+    a: {
+      ...baseTheme.typography.link,
+      color: 'primary',
+      textDecoration: 'underline',
+      '&:hover': {
+        color: baseTheme.colors.darkenPrimary,
+      },
+      '&:focus, :focus-visible': {
+        color: baseTheme.colors.secondary,
+        outline: 'none',
+      },
+    },
     hr: {
       color: 'textPrimary',
     },
