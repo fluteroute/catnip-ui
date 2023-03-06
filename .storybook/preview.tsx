@@ -5,7 +5,9 @@ import { DecoratorFn } from '@storybook/react';
 const withTheme: DecoratorFn = (StoryFn) => {
   return (
     <CatnipProvider>
-      <StoryFn />
+      <div className="percy-only-css-global">
+        <StoryFn />
+      </div>
     </CatnipProvider>
   );
 };

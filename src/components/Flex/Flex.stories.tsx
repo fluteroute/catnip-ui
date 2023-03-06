@@ -5,7 +5,7 @@ import { Flex } from '.';
 import { Typography } from '../Typography';
 
 export default {
-  title: 'Example/Flex',
+  title: 'Components/Flex',
   component: Flex,
 } as ComponentMeta<typeof Flex>;
 

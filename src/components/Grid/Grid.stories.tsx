@@ -5,7 +5,7 @@ import { Grid } from '.';
 import { Typography } from '../Typography';
 
 export default {
-  title: 'Example/Grid',
+  title: 'Components/Grid',
   component: Grid,
 } as ComponentMeta<typeof Grid>;
 

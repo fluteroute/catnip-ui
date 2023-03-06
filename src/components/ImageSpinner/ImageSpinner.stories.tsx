@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ImageSpinner } from '.';
 
 export default {
-  title: 'Example/ImageSpinner',
+  title: 'Components/ImageSpinner',
   component: ImageSpinner,
 } as ComponentMeta<typeof ImageSpinner>;
 

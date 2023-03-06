@@ -6,7 +6,7 @@ import { IconButton } from '../IconButton';
 import { CheckCircle } from '@material-ui/icons';
 
 export default {
-  title: 'Example/Spinner',
+  title: 'Components/Spinner',
   component: Spinner,
 } as ComponentMeta<typeof Spinner>;
 

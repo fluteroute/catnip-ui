@@ -6,7 +6,7 @@ import { Button } from '../Button';
 import { IconButton } from '.';
 
 export default {
-  title: 'Example/IconButton',
+  title: 'Components/IconButton',
   component: IconButton,
   argTypes: {
     isDisabled: {

@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { TextField } from '.';
 
 export default {
-  title: 'Example/TextField',
+  title: 'Components/TextField',
   component: TextField,
   argTypes: {
     isDisabled: {

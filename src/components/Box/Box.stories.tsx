@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Box } from '.';
 
 export default {
-  title: 'Example/Box',
+  title: 'Components/Box',
   component: Box,
 } as ComponentMeta<typeof Box>;
 

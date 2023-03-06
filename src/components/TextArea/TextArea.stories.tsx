@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { TextArea } from '.';
 
 export default {
-  title: 'Example/TextArea',
+  title: 'Components/TextArea',
   component: TextArea,
   argTypes: {
     isDisabled: {
