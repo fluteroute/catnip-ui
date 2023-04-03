@@ -4,7 +4,7 @@
 
 # Catnip UI
 
-An opinionated component library for ashleyndavid.com
+An opinionated component library for ashleyndavid.com and various other personal projects.
 
 
 ## Lint and Format
