@@ -6,8 +6,8 @@ import {
 
 export interface IconButtonProps extends ThemeUIIconButtonProps {
   isDisabled?: boolean;
-  variant?: 'primary' | 'primaryOutline' | 'secondary' | 'secondaryOutline';
-  onClick?: () => void;
+  variant?: 'primary' | 'primaryOutline' | 'secondary' | 'secondaryOutline' | 'transparent';
+  onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
 }
 
 /**
@@ -15,10 +15,10 @@ export interface IconButtonProps extends ThemeUIIconButtonProps {
  */
 export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
   ({ children, isDisabled, onClick, variant = 'primary', sx, ...props }, ref) => {
-    const handleClick = () => {
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
       if (isDisabled || !onClick) return;
 
-      onClick();
+      onClick(event);
     };
 
     const disabledVariant = variant.includes('Outline') ? 'disabledOutline' : 'disabled';
