@@ -19,3 +19,14 @@ export const Default = () => (
     </Flex>
   </Menu>
 );
+
+export const Open = () => (
+  <Menu align="start" side="right" open={true}>
+    <Flex sx={{ flexDirection: 'column' }}>
+      <Link variant="nav">Home</Link>
+      <Link variant="nav">About</Link>
+      <Link variant="nav">Career</Link>
+      <Link variant="nav">Contact</Link>
+    </Flex>
+  </Menu>
+);
