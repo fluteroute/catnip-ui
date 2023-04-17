@@ -38,6 +38,7 @@ yarn.lock
 /public
 
 tsconfig.json
+tsconfig.tsbuildinfo
 .percy.yml
 
 README.md

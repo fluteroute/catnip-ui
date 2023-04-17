@@ -3,7 +3,8 @@
   "author": "Ashley David <ashley@ashleyndavid.com>",
   "version": "1.4.0",
   "private": false,
-  "exports": "./index.ts",
+  "exports": "./src/index.ts",
+  "types": "./dts/index.d.ts",
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
