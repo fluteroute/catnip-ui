@@ -20,6 +20,8 @@ export * from './ImageSpinner';
 
 export * from './Link';
 
+export * from './Menu';
+
 export * from './Spinner';
 
 export * from './TextArea';
