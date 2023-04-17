@@ -123,8 +123,10 @@ export const darkTheme = {
       ...baseTheme.typography.body1,
       color: '#F5F5F5',
       backgroundColor: 'backgroundSecondary',
-      padding: 2,
-      borderRadius: 4,
+      padding: 46,
+      borderRadius: 80,
+      minHeight: 300,
+      boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
     },
     compact: {
       ...baseTheme.typography.body1,
@@ -195,10 +197,11 @@ export const darkTheme = {
   links: {
     nav: {
       ...baseTheme.typography.navLink,
-      color: 'primary',
+      py: '6px',
+      color: 'textPrimary',
       textDecoration: 'underline',
       '&:hover': {
-        color: baseTheme.colors.lightenPrimary,
+        color: '#FFFFFF',
       },
       '&:focus, :focus-visible': {
         color: baseTheme.colors.lightenSecondary,

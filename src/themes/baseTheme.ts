@@ -68,7 +68,7 @@ export const baseTheme = {
     },
     navLink: {
       fontFamily: 'Source Code Pro, Arial',
-      fontSize: '20px',
+      fontSize: '16px',
       fontStyle: 'normal',
       fontWeight: '600',
       lineHeight: 'normal',
