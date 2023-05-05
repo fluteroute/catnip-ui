@@ -16,9 +16,9 @@ export * from './IconButton';
 
 export * from './Image';
 
-export * from './ImageSpinner';
-
 export * from './Link';
+
+export * from './ListBox';
 
 export * from './Menu';
 

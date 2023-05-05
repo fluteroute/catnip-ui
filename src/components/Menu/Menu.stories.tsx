@@ -11,12 +11,20 @@ export default {
 
 export const Default = () => (
   <Menu align="start" side="right">
-    <Flex sx={{ flexDirection: 'column' }}>
-      <Link variant="nav">Home</Link>
-      <Link variant="nav">About</Link>
-      <Link variant="nav">Career</Link>
-      <Link variant="nav">Contact</Link>
-    </Flex>
+    <ul role="listbox" style={{ listStyleType: 'none', paddingInlineStart: 0 }}>
+      <Link variant="nav" href="google.com">
+        <li role="listitem">Home</li>
+      </Link>
+      <Link variant="nav">
+        <li>About</li>
+      </Link>
+      <Link variant="nav">
+        <li>Career</li>
+      </Link>
+      <Link variant="nav">
+        <li>Contact</li>
+      </Link>
+    </ul>
   </Menu>
 );
 

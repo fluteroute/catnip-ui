@@ -8,7 +8,7 @@ export interface CatnipProviderProps {
   theme?: CatnipTheme;
 }
 
-function CatnipProvider(props: CatnipProviderProps) {
+export function CatnipProvider(props: CatnipProviderProps) {
   const { children, variant = 'dark', theme: themeProp } = props;
 
   const theme = !themeProp ? (variant === 'dark' ? darkTheme : lightTheme) : themeProp;
