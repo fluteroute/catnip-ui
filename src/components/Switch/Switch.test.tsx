@@ -4,7 +4,7 @@ import { Switch } from './Switch';
 
 test('[components] Button: should render', () => {
   const onChangeSpy = jest.fn();
-  render(<Switch onChange={onChangeSpy}>Switch</Switch>);
+  render(<Switch label="Switch" onChange={onChangeSpy} />);
 
   expect(screen.getByText('Switch')).toBeDefined();
 

@@ -6,13 +6,13 @@ import { IconButton } from './IconButton';
 test('[components] IconButton: should render', () => {
   const onClickSpy = jest.fn();
   render(
-    <IconButton onClick={onClickSpy}>
+    <IconButton aria-label="button" onClick={onClickSpy}>
       <Alarm fontSize="inherit" />
     </IconButton>
   );
 
-  expect(screen.getByText('button')).toBeDefined();
+  expect(screen.getByLabelText('button')).toBeDefined();
 
-  fireEvent.click(screen.getByText('button'));
+  fireEvent.click(screen.getByLabelText('button'));
   expect(onClickSpy).toHaveBeenCalled();
 });

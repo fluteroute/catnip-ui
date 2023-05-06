@@ -10,13 +10,13 @@ export interface MenuProps extends Popover.PopoverProps, IconButtonProps {
   side?: 'top' | 'right' | 'bottom' | 'left';
 }
 
-export const Menu = React.forwardRef((props: MenuProps) => {
+export const Menu = React.forwardRef<HTMLButtonElement, MenuProps>((props, ref) => {
   const { align, children, side, ...other } = props;
 
   return (
-    <Popover.Root {...other}>
+    <Popover.Root>
       <Popover.Trigger asChild>
-        <IconButton variant="secondary">
+        <IconButton aria-label="Navigation Menu" ref={ref} variant="secondary" {...other}>
           <FontAwesomeIcon icon={faBars} />
         </IconButton>
       </Popover.Trigger>

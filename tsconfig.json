@@ -21,6 +21,9 @@
     "noImplicitReturns": true,
     "noUnusedLocals": false,
     "outDir": "dts",
+    "paths": {
+      "test-utils": ["./utils/setUpTests"]
+    },
     "pretty": true,
     "removeComments": false,
     "resolveJsonModule": false,
@@ -30,6 +33,6 @@
     "strict": true,
     "target": "es2022"
   },
-  "exclude": ["*.stories.tsx"],
+  "exclude": ["*.stories.tsx", "*.test.tsx", "setUpTests.ts"],
   "include": ["src"]
 }
